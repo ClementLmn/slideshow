@@ -1,0 +1,28 @@
+{
+  "name": "slideshow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ClementLmn@github.com/ClementLmn/slideshow.git"
+  },
+  "author": "Clement Lemoine <clementlemoine.cl@gmail.com> (http://www.clement-lemoine.fr)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ClementLmn/slideshow/issues"
+  },
+  "homepage": "https://github.com/ClementLmn/slideshow#readme",
+  "devDependencies": {
+    "lowdb": "^1.0.0",
+    "css-loader": "^0.28.7",
+    "html-webpack-plugin": "^2.30.1",
+    "style-loader": "^0.18.2",
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
+  }
+}
