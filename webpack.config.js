@@ -20,6 +20,9 @@ module.exports = {
             }
         ]
     },
+    node: {
+        fs: "empty"
+    },
     plugins,
     devServer : {
         host: '0.0.0.0',
