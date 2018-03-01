@@ -10,12 +10,6 @@ export const init = () => {
     firebase.initializeApp(config);
 }
 
-export const get = (a, trigger) => {
-    
-    firebase.database().ref(a).once('value').then(data => {
-        get(data.val(), 'good');
-    });
-
-    if(trigger === 'good') return a;
-
+export const get = (a) => {
+    return firebase.database().ref(a).once('value');
 }

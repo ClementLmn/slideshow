@@ -8,7 +8,8 @@ const join = document.querySelector('#join');
 db.init();
 url.check();
 
-if(join.length){
+
+if(join){
     join.addEventListener('click', function(){
         const input = document.querySelector('#joinValue');
         if(input.value) url.go(input.value);

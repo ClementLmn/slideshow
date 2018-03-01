@@ -11,12 +11,17 @@ const getParameterByName = (name, url) => {
 }
 
 export const check = () => {
-    
     const param = getParameterByName('i');
     if(!param) return;
-    app.innerHTML = param;
-    console.log(db.get(`/${param}`, 'wait'));
-    
+    app.innerHTML = '';    
+    db.get(`/${param}`).then(data => {
+        const slideshow = data.val();
+        localStorage.setItem('pwd', slideshow.pwd);
+        slideshow.slides.forEach(element => {
+            app.insertAdjacentHTML('beforeend', element);
+        });
+        document.title = slideshow.title;
+    });
 }
 
 export const go = (i) => {
