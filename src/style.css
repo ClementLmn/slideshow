@@ -1,1 +1,36 @@
 /* MAIN STYLE FILE */
+html {
+    height: 100%;
+    background-color: #000000;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+#slideshow {
+    display: none;
+}
+
+#workspace {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+}
+
+.models {
+    display: none;
+}
+
+.choices {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.choices > li {
+    width: 100px;
+    height: 100px;
+    background-color:red;
+    list-style: none;
+}
+
+.choices > li:hover {
+    background-color:green;
+}
