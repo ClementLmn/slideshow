@@ -1,3 +1,5 @@
+import * as db from './db';
+
 const getParameterByName = (name, url) => {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -9,8 +11,12 @@ const getParameterByName = (name, url) => {
 }
 
 export const check = () => {
+    
     const param = getParameterByName('i');
-    if(param) app.innerHTML = param;
+    if(!param) return;
+    app.innerHTML = param;
+    console.log(db.get(`/${param}`, 'wait'));
+    
 }
 
 export const go = (i) => {
