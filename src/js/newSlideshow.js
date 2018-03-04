@@ -1,18 +1,74 @@
-const MODELS = "<div class='models'><div id='model-1'><h1 class='center'></h1></div>" +
-    "<div id='model-2'><h1 class='top'></h1><p class='left'></p><img class='right' src='.'><p class='bottom'></p></div><div id='model-3'><h1 class='top'></h1><img class='left' src='.'><p class='right'></p><p class='bottom'></p></div>" +
-    "<div id='model-4'><h1 class='top'></h1><p class='center'></p><p class='bottom'></p></div>" +
-    "<div id='model-5'><p class='left'></p><img class='right' src='.'></div>" +
-    "<div id='model-6'><img class='left' src='.'><p class='right'></p></div></div>";
-const CHOICES = "<ul class='choices'><li value='1'>1</li><li value='2'>2</li><li value='3'>3</li>" +
-    "<li value='4'>4</li><li value='5'>5</li><li value='6'>6</li></ul>";
-    
-let choices;
-let choicesEl;
+const MODELS = [
+    {
+        'name': 'model-1',
+        'template': "<h1 class='center'></h1>",
+        'choice': 1
+    },
+    {
+        'name': 'model-2',
+        'template': "<h1 class='top'></h1><p class='left'></p><img class='right' src='.'><p class='bottom'></p>",
+        'choice': 2
+    },
+    {
+        'name': 'model-3',
+        'template': "<h1 class='top'></h1><img class='left' src='.'><p class='right'></p><p class='bottom'></p>",
+        'choice': 3
+    },
+    {
+        'name': 'model-4',
+        'template': "<h1 class='top'></h1><p class='center'></p><p class='bottom'></p>",
+        'choice': 4
+    },
+    {
+        'name': 'model-5',
+        'template': "<p class='left'></p><img class='right' src='.'>",
+        'choice': 5
+    },
+    {
+        'name': 'model-6',
+        'template': "<img class='left' src='.'><p class='right'></p>",
+        'choice': 6
+    }
+]
+
 let cpt = 0;
+var choices;
+var choicesEl;
+
+export const createModels = (slideshow) => {
+    let models = document.createElement('div');
+    models.className = 'models';
+
+    MODELS.forEach((model) => {
+        let tmp = document.createElement('div');
+        tmp.setAttribute('id', model.name);
+        tmp.insertAdjacentHTML('beforeend', model.template);
+        models.appendChild(tmp);
+    });
+
+    slideshow.appendChild(models);
+}
+
+export const createChoices = (slideshow) => {
+    let choices = document.createElement('ul');
+    choices.className = 'choices';
+
+    MODELS.forEach((model) => {
+        let tmp = document.createElement('li');
+        tmp.value = model.choice;
+
+        let txt = document.createTextNode(model.name);
+        tmp.appendChild(txt);
+    
+        choices.appendChild(tmp);
+    });
+
+    slideshow.appendChild(choices);
+}
 
 export const insert = (slideshow, workspace) => {
-    slideshow.insertAdjacentHTML('beforeend', MODELS);
-    slideshow.insertAdjacentHTML('beforeend', CHOICES);
+    createModels(slideshow);
+    createChoices(slideshow);
     
     choices = document.querySelector('.choices');
     choicesEl = document.querySelectorAll('.choices li');
@@ -23,14 +79,15 @@ export const insert = (slideshow, workspace) => {
 export const init = (workspace) => {
     const onModelSelect = (modelId) => {
         const model = document.querySelector('#model-' + modelId);
+        let tmp = model.cloneNode(true);
         cpt++;
     
-        model.removeAttribute('id');
-        model.dataset.slideId = cpt;
-        model.dataset.slideModel = modelId;
+        tmp.removeAttribute('id');
+        tmp.dataset.slideId = cpt;
+        tmp.dataset.slideModel = modelId;
     
-        choices.style.display = 'none';
-        workspace.appendChild(model);
+        hideChoices();
+        workspace.appendChild(tmp);
     }
     
     choicesEl.forEach((element) => {
@@ -40,3 +97,10 @@ export const init = (workspace) => {
     });
 }
 
+export const showChoices = () => {
+    choices.style.display = 'block';
+}
+
+export const hideChoices = () => {
+    choices.style.display = 'none';
+}

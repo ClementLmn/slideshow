@@ -9,7 +9,7 @@ const join = document.querySelector('#join');
 const newBtn = document.querySelector('#new');
 const slideshow = document.querySelector('#slideshow');
 const workspace = document.querySelector('#workspace');
-const newSlideBtn = document.querySelector('#newSlide');;
+const newSlideBtn = document.querySelector('#newSlide');
 
 db.init();
 url.check();
@@ -24,14 +24,13 @@ if(join){
 }
 
 newBtn.addEventListener('click', () => {
+    workspace.style.display = 'block';
     slideshow.style.display = 'block';
     app.style.display = 'none';
     newSlideshow.insert(slideshow, workspace);
 });
 
 newSlideBtn.addEventListener('click', () => {
-    choices.style.display = 'block';
+    newSlideshow.showChoices();
     newSlideshow.init(workspace);
 });
-
-
