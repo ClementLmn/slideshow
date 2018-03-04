@@ -16,9 +16,19 @@ export const check = () => {
     app.innerHTML = '';    
     db.get(`/${param}`).then(data => {
         const slideshow = data.val();
+
+        const slidesContainer = document.createElement('div');
+        slidesContainer.classList.add('slides-container');
+
+        app.appendChild(slidesContainer);
+
+        const titleLine = `<div class='zone-title'><button id='toLeft' class='to-left'><span class='inner-btn'><</span></button><h2>${slideshow.title}</h2><button id='toRight' class='to-right'><span class='inner-btn'>></span></button>`;
+
+        app.insertAdjacentHTML('afterbegin', titleLine);
+        
         localStorage.setItem('pwd', slideshow.pwd);
         slideshow.slides.forEach(element => {
-            app.insertAdjacentHTML('beforeend', element);
+            slidesContainer.insertAdjacentHTML('beforeend', element);
         });
         document.title = slideshow.title;
     });

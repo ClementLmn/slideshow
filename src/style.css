@@ -1,4 +1,49 @@
-/* MAIN STYLE FILE */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 html {
     height: 100%;
     background-color: #000000;
@@ -14,6 +59,12 @@ html {
     display: none;
     width: 100vw;
     height: 100vh;
+}
+
+#app{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
 }
 
 .models {
@@ -34,3 +85,163 @@ html {
 .choices > li:hover {
     background-color:green;
 }
+
+.slides-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.slide {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-family: 'Roboto Condensed';
+}
+
+.slide:first-child{
+    opacity: 1;
+    pointer-events: auto;    
+}
+
+.slide h1{
+    font-size: 85px;
+    font-weight: 700;
+    letter-spacing: 10px;
+    margin: 25px 0 25px;
+    text-transform: uppercase;    
+}
+
+.slide h2{
+    font-size: 35px;
+    letter-spacing: 5px;
+    font-weight: 700;
+    text-transform: uppercase;    
+}
+
+.slide p{
+    margin: 45px 0;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.slide a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.slide a::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    height: 1px;
+    width: 100%;
+    background-color: white;
+    transform-origin: 100% 50%;
+    transition: 0.3s ease-in-out 0.1s;
+}
+
+.slide a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    background-color: white;
+    transform-origin: 0% 50%;
+    transition: 0.3s ease-in-out;
+}
+
+.slide a:hover::before{
+    transform: scaleX(0);
+    transition: 0.3s ease-in-out;
+    
+}
+
+.slide a:hover::after{
+    transform: scaleX(1);
+    transition: 0.3s ease-in-out 0.1s;    
+}
+
+.zone-title{
+    color: white;
+    position: absolute;
+    padding: 0 16%;
+    top: 80px;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.zone-title h2{
+    font-family: 'Roboto Condensed';
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.to-left, .to-right{
+    position: relative;
+    display: block;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+}
+
+.to-left > .inner-btn, .to-right > .inner-btn{
+    display: none;
+}
+
+.to-right{
+    transform: rotate(180deg);
+}
+
+.to-left::before, .to-right::before, .to-left::after, .to-right::after{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    content: '';
+    display: block;
+    height: 2px;
+    width: 12px;
+    background-color: white;
+    transform-origin: 0% 50%;
+    transform: rotate(45deg);
+    transition: 0.3s ease-in-out; 
+}
+
+.to-left:hover::before, .to-right:hover::before{
+    transform: rotate(45deg) translate(-10px, 10px);
+}
+
+.to-left:hover::after, .to-right:hover::after{
+    transform: rotate(-45deg) translate(-10px, -10px);
+}
+
+.to-left::after, .to-right::after{
+    transform: rotate(-45deg);
+}
+
+
