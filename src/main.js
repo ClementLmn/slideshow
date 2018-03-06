@@ -11,6 +11,8 @@ const slideshow = document.querySelector('#slideshow');
 const workspace = document.querySelector('#workspace');
 const newSlideBtn = document.querySelector('#newSlide');
 
+var slidesContainer;
+
 db.init();
 url.check();
 
@@ -24,13 +26,18 @@ if(join){
 }
 
 newBtn.addEventListener('click', () => {
-    workspace.style.display = 'block';
-    slideshow.style.display = 'block';
-    app.style.display = 'none';
-    newSlideshow.insert(slideshow, workspace);
+    const tmp = document.createElement('div');
+    tmp.classList.add('slides-container');
+    app.innerHTML = '';
+    app.appendChild(tmp);
+
+    newSlideshow.showElement(slideshow);
+    slidesContainer = document.querySelector('.slides-container');
+    newSlideshow.insert(slideshow, slidesContainer);   
+    newSlideshow.showElement(newSlideBtn); 
 });
 
 newSlideBtn.addEventListener('click', () => {
-    newSlideshow.showChoices();
-    newSlideshow.init(workspace);
+    newSlideshow.showElement(slideshow);
+    newSlideshow.init(slideshow, slidesContainer);
 });
