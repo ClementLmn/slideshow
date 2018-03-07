@@ -161,9 +161,9 @@ html {
     font-family: 'Roboto Condensed';
 }
 
-.slide:first-child{
+.slide.active{
     opacity: 1;
-    pointer-events: auto;    
+    pointer-events: auto;
 }
 
 .slide h1{

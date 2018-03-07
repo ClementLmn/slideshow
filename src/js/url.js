@@ -15,8 +15,13 @@ const addTitle = (slideshow) => {
     const rightArrow = document.createElement('button');
     const leftArrow = document.createElement('button');
 
-    leftArrow.addEventListener('click', slide.previousSlide);
-    rightArrow.addEventListener('click', slide.nextSlide);
+    leftArrow.addEventListener('click', function(e){
+        slide.previousSlide(slideshow);
+    }, false);
+
+    rightArrow.addEventListener('click', function(e){
+        slide.nextSlide(slideshow);
+    }, false);
 
     rightArrow.classList.add('to-right');
     rightArrow.id = 'toRight';
@@ -58,9 +63,10 @@ export const check = () => {
         addTitle(slideshow);
         
         localStorage.setItem('pwd', slideshow.pwd);
-        slideshow.slides.forEach(element => {
+        slideshow.slides.forEach((element, i) => {
             slidesContainer.insertAdjacentHTML('beforeend', element);
         });
+        slidesContainer.querySelector('.slide:first-child').classList.add('active');
     });
 }
 
