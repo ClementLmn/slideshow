@@ -1,4 +1,5 @@
 import * as db from './db';
+import * as slide from './slideTransition';
 
 const getParameterByName = (name, url) => {
     if (!url) url = window.location.href;
@@ -10,6 +11,36 @@ const getParameterByName = (name, url) => {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+const addTitle = (slideshow) => {
+    const rightArrow = document.createElement('button');
+    const leftArrow = document.createElement('button');
+
+    leftArrow.addEventListener('click', slide.previousSlide);
+    rightArrow.addEventListener('click', slide.nextSlide);
+
+    rightArrow.classList.add('to-right');
+    rightArrow.id = 'toRight';
+    rightArrow.innerHTML = "<span class='inner-btn'>></span>";
+
+    leftArrow.classList.add('to-left');
+    leftArrow.id = 'toLeft';
+    leftArrow.innerHTML = "<span class='inner-btn'><</span>";
+
+    const title = document.createElement('h2');
+    title.innerHTML = slideshow.title;
+
+    const zoneTitle = document.createElement('div');
+    zoneTitle.classList.add('zone-title');
+
+    zoneTitle.appendChild(title);
+    zoneTitle.appendChild(rightArrow);
+    zoneTitle.insertBefore(leftArrow, zoneTitle.childNodes[0]);
+
+    document.title = slideshow.title;
+    
+    app.insertBefore(zoneTitle, app.childNodes[0]);
+}
+
 export const check = () => {
     const param = getParameterByName('i');
     if(!param) return;
@@ -17,20 +48,19 @@ export const check = () => {
     db.get(`/${param}`).then(data => {
         const slideshow = data.val();
 
+
+        
         const slidesContainer = document.createElement('div');
         slidesContainer.classList.add('slides-container');
 
         app.appendChild(slidesContainer);
 
-        const titleLine = `<div class='zone-title'><button id='toLeft' class='to-left'><span class='inner-btn'><</span></button><h2>${slideshow.title}</h2><button id='toRight' class='to-right'><span class='inner-btn'>></span></button>`;
-
-        app.insertAdjacentHTML('afterbegin', titleLine);
+        addTitle(slideshow);
         
         localStorage.setItem('pwd', slideshow.pwd);
         slideshow.slides.forEach(element => {
             slidesContainer.insertAdjacentHTML('beforeend', element);
         });
-        document.title = slideshow.title;
     });
 }
 
