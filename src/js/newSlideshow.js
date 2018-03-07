@@ -1,32 +1,32 @@
 const MODELS = [
     {
         'name': 'model-1',
-        'template': "<h1 class='center' contenteditable='true'>Votre titre ici</h1>",
+        'template': "<div class='content'><h1 class='center' contenteditable='true'>Votre titre ici</h1></div>",
         'choice': 1
     },
     {
         'name': 'model-2',
-        'template': "<h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='left' contenteditable='true'>Votre texte ici</p><img class='right' src='.'><p class='bottom' contenteditable='true'>Votre texte ici</p>",
+        'template': "<div class='content'><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='left' contenteditable='true'>Votre texte ici</p><img class='right' src='.'><p class='bottom' contenteditable='true'>Votre texte ici</p></div>",
         'choice': 2
     },
     {
         'name': 'model-3',
-        'template': "<h1 class='top' contenteditable='true'>Votre titre ici</h1><img class='left' src='.'><p class='right' contenteditable='true'>Votre texte ici</p><p class='bottom' contenteditable='true'>Votre texte ici</p>",
+        'template': "<div class='content'><h1 class='top' contenteditable='true'>Votre titre ici</h1><img class='left' src='.'><p class='right' contenteditable='true'>Votre texte ici</p><p class='bottom' contenteditable='true'>Votre texte ici</p></div>",
         'choice': 3
     },
     {
         'name': 'model-4',
-        'template': "<h1 class='top' contenteditable='true'>Votre titre ici</h1><h2 contenteditable='true'>Votre texte ici</h2><p class='bottom' contenteditable='true'>Votre texte ici</p>",
+        'template': "<div class='content'><h1 class='top' contenteditable='true'>Votre titre ici</h1><h2 contenteditable='true'>Votre texte ici</h2><p class='bottom' contenteditable='true'>Votre texte ici</p></div>",
         'choice': 4
     },
     {
         'name': 'model-5',
-        'template': "<p class='left' contenteditable='true'>Votre texte ici</p><img class='right' src='.'>",
+        'template': "<div class='content'><p class='left' contenteditable='true'>Votre texte ici</p><img class='right' src='.'></div>",
         'choice': 5
     },
     {
         'name': 'model-6',
-        'template': "<img class='left' src='.'><p class='right' contenteditable='true'>Votre texte ici</p>",
+        'template': "<div class='content'><img class='left' src='.'><p class='right' contenteditable='true'>Votre texte ici</p></div>",
         'choice': 6
     }
 ];

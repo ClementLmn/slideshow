@@ -152,10 +152,6 @@ html {
 
 .slide {
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     opacity: 0;
     pointer-events: none;
     top: 0;
@@ -189,6 +185,39 @@ html {
     margin: 45px 0;
     text-transform: capitalize;
     font-size: 18px;
+}
+
+.slide .bg{
+    position: fixed;
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+    z-index: -1;
+}
+
+.slide .content{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.slide .bg img{
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 50%;
+    min-height: 50%;    
 }
 
 .slide a {
