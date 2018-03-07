@@ -11,6 +11,8 @@ const slideshow = document.querySelector('#slideshow');
 const workspace = document.querySelector('#workspace');
 const newSlideBtn = document.querySelector('#newSlide');
 
+const closeNewBtn = document.querySelector('#slideshow .close');
+
 var slidesContainer;
 
 db.init();
@@ -39,5 +41,10 @@ newBtn.addEventListener('click', () => {
 
 newSlideBtn.addEventListener('click', () => {
     newSlideshow.showElement(slideshow);
+    newSlideshow.showElement(closeNewBtn);
     newSlideshow.init(slideshow, slidesContainer);
+});
+
+closeNewBtn.addEventListener('click', () => {
+    newSlideshow.hideElement(slideshow);
 });

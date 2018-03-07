@@ -88,6 +88,27 @@ html {
     cursor: pointer;
 }
 
+.close {
+    height: 70px;
+    width: 70px;
+    font-size: 3em;
+    padding: 0 0 10px 0;
+    background-color: transparent;
+    transform: rotate(45deg);
+    justify-content: center;
+    color: white;
+    border-radius: 50%;
+    border: solid 2px #FFFFFF;
+    cursor: pointer;
+}
+
+#slideshow > .close {
+    display: none;
+    position: absolute;
+    right: 5vw;
+    top: 5vh;
+}
+
 .models {
     display: none;
 }
@@ -97,7 +118,7 @@ html {
     width: 80vw;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     align-self: center;
     font-family: 'Roboto Condensed';

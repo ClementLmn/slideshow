@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,24 @@
     <title>Document</title>
 </head>
 <body>
+
+    <div id='app' class="app">
+        <div class="new">
+            <button id='new'>NEW</button>
+        </div>
+        <div class="join">
+            <span>Join a slideshow</span>
+            <input id='joinValue' type="text" placeholder='Enter the slideshow number'>
+            <button id='join'>Join</button>
+        </div>
+    </div>
+
+    <button id='newSlide'>NEW SLIDE</button>
+
+    <div id='slideshow' class='slideshow'>
+        <button class='close'>+</button>
+    </div>
+
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
 <script type="text/javascript" src="bundle.js"></script></body>
 </html>

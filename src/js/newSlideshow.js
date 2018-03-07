@@ -16,7 +16,7 @@ const MODELS = [
     },
     {
         'name': 'model-4',
-        'template': "<h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='center' contenteditable='true'>Votre texte ici</p><p class='bottom' contenteditable='true'>Votre texte ici</p>",
+        'template': "<h1 class='top' contenteditable='true'>Votre titre ici</h1><h2 contenteditable='true'>Votre texte ici</h2><p class='bottom' contenteditable='true'>Votre texte ici</p>",
         'choice': 4
     },
     {
