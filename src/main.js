@@ -43,6 +43,7 @@ const newSlideBtn = document.querySelector('#newSlide');
 const saveBtn = document.querySelector('#save');
 const updateBtn = document.querySelector('#update');
 const shareBtn = document.querySelector('#share');
+const removeSlide = document.querySelector('#delete');
 
 const bgBtn = document.querySelector('#bgBtn');
 const bgCancel = document.querySelector('#bgCancel');
@@ -220,4 +221,13 @@ bgPicture.addEventListener('change', (e) => {
 
 bgColor.addEventListener('change', (e) => {
     bgColorValue = e.target.value;
+});
+
+removeSlide.addEventListener('click', () => {
+    let parent = document.querySelector('.slides-container');
+    let tmp = document.querySelector('.slide.active');
+
+    parent.removeChild(tmp);
+
+    document.querySelectorAll('.slide')[0].classList.add('active');
 });
