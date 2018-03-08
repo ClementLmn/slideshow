@@ -2,34 +2,40 @@ import * as slide from './slideTransition';
 
 const MODELS = [
     {
-        'name': 'TITRE',
+        'name': 'model-1',
         'template': "<div class='bg'><img src='.'></div><div class='content'><h1 class='center' contenteditable='true'>Votre titre ici</h1></div>",
-        'choice': 1
+        'choice': 1,
+        'description': 'TITRE'
     },
     {
-        'name': 'TITRE + TEXTE + LIEN',
+        'name': 'model-2',
         'template': "<div class='bg'><img src='.'></div><div class='content'><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='bottom' contenteditable='true'>Votre texte ici</p><div class='wrapper-link'><a href='#' target='_blank'>Un lien</a><span class='link-edit'>Éditer</span></div></div>",
-        'choice': 2
+        'choice': 2,
+        'description': 'TITRE + TEXTE + LIEN'
     },
     {
-        'name': 'TITRE + TEXTE',
+        'name': 'model-3',
         'template': "<div class='bg'><img src='.'></div><div class='content'><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='bottom' contenteditable='true'>Votre texte ici</p></div>",
-        'choice': 3
+        'choice': 3,
+        'description': 'TITRE + TEXTE'
     },
     {
-        'name': 'SOUS-TITRE + TITRE + TEXTE + LIEN',
+        'name': 'model-4',
         'template': "<div class='bg'><img src='.'></div><div class='content'><h2 contenteditable='true'>Votre texte ici</h2><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='bottom' contenteditable='true'>Votre texte ici</p><div class='wrapper-link'><a href='#' target='_blank'>Un lien</a><span class='link-edit'>Éditer</span></div></div>",
-        'choice': 4
+        'choice': 4,
+        'description': 'SOUS-TITRE + TITRE + TEXTE + LIEN'
     },
     {
-        'name': 'TEXTE + LIEN',
+        'name': 'model-5',
         'template': "<div class='bg'><img src='.'></div><div class='content'><p class='left' contenteditable='true'>Votre texte ici</p><div class='wrapper-link'><a href='#' target='_blank'>Un lien</a><span class='link-edit'>Éditer</span></div></div>",
-        'choice': 5
+        'choice': 5,
+        'description': 'TEXTE + LIEN'
     },
     {
-        'name': 'TEXTE',
+        'name': 'model-6',
         'template': "<div class='bg'><img src='.'></div><div class='content'><p class='right' contenteditable='true'>Votre texte ici</p></div>",
         'choice': 6,
+        'description': 'TEXTE'
     }
 ];
 
@@ -60,7 +66,7 @@ export const createChoices = (slideshow) => {
         let tmp = document.createElement('li');
         tmp.value = model.choice;
 
-        let txt = document.createTextNode(model.name);
+        let txt = document.createTextNode(model.description);
         tmp.appendChild(txt);
     
         choices.appendChild(tmp);
