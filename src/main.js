@@ -202,6 +202,9 @@ bgBtn.addEventListener('click', () => {
     img.setAttribute('src', bgPictureValue);
     bg.style.background = bgColorValue;
 
+    bgPictureValue = '';
+    bgColorValue = '';
+
     newSlideshow.closeBgSelect();
 });
 
