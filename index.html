@@ -10,6 +10,8 @@
 
     <div id='app' class="app">
         <div class="new">
+            <span>Create a slideshow</span>
+            <input id='newValue' type="text" placeholder='Type the new slideshow title'>
             <button id='new'>NEW</button>
         </div>
         <div class="join">
@@ -19,10 +21,16 @@
         </div>
     </div>
 
-    <button id='newSlide'>NEW SLIDE</button>
-
+    <div class="btns">
+        <button id='share' class="btn">#</button>
+        <button id='save' class="btn">@</button>
+        <button id='update' class="btn">UP</button>
+        <button id='newSlide' class="btn">+</button>
+    </div>
+    <button id='actions' class="btn">*</button>
+    
     <div id='slideshow' class='slideshow'>
-        <button class='close'>+</button>
+        <button class='btn close'>+</button>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
