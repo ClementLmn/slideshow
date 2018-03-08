@@ -71,6 +71,11 @@ button, a {
     justify-content: center;
 }
 
+.home > section {
+    display: flex;
+    width: 50vw;
+}
+
 .side {
     display: flex;
     margin: auto;
@@ -79,18 +84,39 @@ button, a {
     padding: 10vw;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.side > button , .side > input {
-    height: 40px;
-    border-radius: 30px;
-    font-size: 1em;
-    background-color: #FFFFFF;
     text-align: center;
 }
 
+.side > input {
+    border: 1px solid transparent;
+    padding: 15px;
+    background-color: white;
+    font-family: 'Roboto Condensed';
+    color: black;
+    font-size: 18px;
+    font-weight: 1em;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    margin: 0 20px;
+}
+
+#right {
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+#joinValue {
+    border: 1px solid black;
+}
+
+#join {
+    border: 1px solid black;
+}
+
 .side > button:hover {
-    background-color:green;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
 }
 
 #slideshow {
