@@ -277,6 +277,8 @@ button, a {
     text-transform: uppercase;
     opacity: 0;
     transform: translateY(-30px);
+    text-align: center;
+    
     transition: 0.3s ease-in-out 0.3s;
     z-index: 1;
     will-change: transform;
@@ -295,6 +297,7 @@ button, a {
     letter-spacing: 10px;
     margin: 25px 0 25px;
     text-transform: uppercase;
+    text-align: center;
     opacity: 0;
     will-change: transform;
     transform: translateY(-30px);
@@ -310,6 +313,8 @@ button, a {
 .slide p{
     margin: 45px 0;
     font-size: 18px;
+    text-align: center;
+    
     z-index: 1;
     opacity: 0;
     transform: translateY(-30px);
