@@ -86,14 +86,8 @@ closeNewBtn.addEventListener('click', () => {
 });
 
 saveBtn.addEventListener('click', () => {
-    let slides = document.querySelectorAll('.slide');
-    slides.forEach((slide) => {
-        res.slides.push(slide.outerHTML);
-    })
-    if(localStorage.getItem('id')){
-        db.remove(localStorage.getItem('id'));
-    }
-    localStorage.setItem('id', db.push(res));
+    overlay.classList.add('active');
+    pwdModal.classList.add('active');
 });
 
 shareCancel.addEventListener('click', function(){
@@ -114,23 +108,57 @@ passwordCancel.addEventListener('click', () => {
 passwordBtn.addEventListener('click', () => {
     const mdp = localStorage.getItem('pwd');
     const testMdp = pwdValue.value;
-    
-    if(mdp == testMdp){
+
+    if(url.getParameterByName('i')){
+        if(mdp == testMdp){
+            success.classList.add('active');
+            setTimeout(() => {
+                success.classList.remove('active');
+            }, 3000);
+            
+            const newSlides = [];
+
+            let slides = document.querySelectorAll('.slide');
+            slides.forEach((slide) => {
+                newSlides.push(slide.outerHTML);
+            })
+            db.update(url.getParameterByName('i'), newSlides);
+
+            pwdOutput.innerHTML = mdp;
+            linkOutput.innerHTML = window.location;
+            
+
+            overlay.classList.remove('active');
+            pwdModal.classList.remove('active');
+
+            shareModal.classList.add('active');
+            overlay.classList.add('active');
+
+        }else{
+            error.classList.add('active');
+            setTimeout(() => {
+                error.classList.remove('active');
+            }, 3000);
+        }
+    }else if(testMdp){
         success.classList.add('active');
         setTimeout(() => {
             success.classList.remove('active');
         }, 3000);
-        
-        const newSlides = [];
+
+        res.pwd = testMdp;
 
         let slides = document.querySelectorAll('.slide');
         slides.forEach((slide) => {
-            newSlides.push(slide.outerHTML);
+            res.slides.push(slide.outerHTML);
         })
-        db.update(url.getParameterByName('i'), newSlides);
+        if(localStorage.getItem('id')){
+            db.remove(localStorage.getItem('id'));
+        }
+        localStorage.setItem('id', db.push(res));
 
-        pwdOutput.innerHTML = mdp;
-        linkOutput.innerHTML = window.location;
+        pwdOutput.innerHTML = testMdp;
+        linkOutput.innerHTML = window.location.protocol + '//' + window.location.hostname + '/?i=' + localStorage.getItem('id');
         
 
         overlay.classList.remove('active');
@@ -138,13 +166,5 @@ passwordBtn.addEventListener('click', () => {
 
         shareModal.classList.add('active');
         overlay.classList.add('active');
-
-
-
-    }else{
-        error.classList.add('active');
-        setTimeout(() => {
-            error.classList.remove('active');
-        }, 3000);
     }
 });
