@@ -25,3 +25,7 @@ export const update = (a, obj) => {
     firebase.database().ref().child('/'+a)
         .update({ slides: obj });
 }
+
+export const remove = (a) => {
+    firebase.database().ref(a).remove();
+}
