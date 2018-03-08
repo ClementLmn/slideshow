@@ -65,7 +65,7 @@ newBtn.addEventListener('click', () => {
 
     newSlideshow.showElement(slideshow);
     slidesContainer = document.querySelector('.slides-container');
-    newSlideshow.insert(slideshow, slidesContainer);   
+    newSlideshow.insert(slideshow, slidesContainer, res.title);   
     newSlideshow.showElement(actions);
     newSlideshow.hideElement(document.querySelector('#update'));
     

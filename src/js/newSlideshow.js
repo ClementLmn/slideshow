@@ -82,12 +82,49 @@ export const addSlide = (slideshow, slide, id, model) => {
     return slide;
 }
 
-export const insert = (slideshow, workspace) => {
+const addTitle = (t, workspace) => {
+    const rightArrow = document.createElement('button');
+    const leftArrow = document.createElement('button');
+
+    leftArrow.addEventListener('click', function(e){
+        slide.previousSlide();
+    }, false);
+
+    rightArrow.addEventListener('click', function(e){
+        slide.nextSlide();
+    }, false);
+
+    rightArrow.classList.add('to-right');
+    rightArrow.id = 'toRight';
+    rightArrow.innerHTML = "<span class='inner-btn'>></span>";
+
+    leftArrow.classList.add('to-left');
+    leftArrow.id = 'toLeft';
+    leftArrow.innerHTML = "<span class='inner-btn'><</span>";
+
+    const title = document.createElement('h2');
+    title.innerHTML = t;
+
+    const zoneTitle = document.createElement('div');
+    zoneTitle.classList.add('zone-title');
+
+    zoneTitle.appendChild(title);
+    zoneTitle.appendChild(rightArrow);
+    zoneTitle.insertBefore(leftArrow, zoneTitle.childNodes[0]);
+
+    document.title = t + ' - Slideshow';
+    
+    workspace.insertBefore(zoneTitle, workspace.childNodes[0]);
+}
+
+export const insert = (slideshow, workspace, title) => {
     createModels(slideshow);
     createChoices(slideshow);
     
     choices = document.querySelector('.choices');
     choicesEl = document.querySelectorAll('.choices li');
+
+    addTitle(title, workspace);
 
     init(slideshow, workspace);
 }

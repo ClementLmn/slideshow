@@ -6,11 +6,11 @@ const addTitle = (slideshow) => {
     const leftArrow = document.createElement('button');
 
     leftArrow.addEventListener('click', function(e){
-        slide.previousSlide(slideshow);
+        slide.previousSlide();
     }, false);
 
     rightArrow.addEventListener('click', function(e){
-        slide.nextSlide(slideshow);
+        slide.nextSlide();
     }, false);
 
     rightArrow.classList.add('to-right');
