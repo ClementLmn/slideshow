@@ -103,6 +103,15 @@ linkCancel.addEventListener('click', function(){
     overlay.classList.remove('active');
 });
 
+linkBtn.addEventListener('click', function(){
+    const theLink = document.querySelector('.slide.active .wrapper-link a');
+    theLink.href = linkModal.querySelector('#link').value;
+    theLink.innerHTML = linkModal.querySelector('#linkTxt').value;
+
+    linkModal.classList.remove('active');
+    overlay.classList.remove('active');
+});
+
 updateBtn.addEventListener('click', () => {
     overlay.classList.add('active');
     pwdModal.classList.add('active'); 

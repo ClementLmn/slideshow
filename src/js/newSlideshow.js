@@ -149,14 +149,6 @@ export const init = (slideshow, workspace) => {
             linkModal.classList.add('active');
             overlay.classList.add('active');
         });
-
-        linkBtn.addEventListener('click', function(){
-            theLink.href = linkModal.querySelector('#link').value;
-            theLink.innerHTML = linkModal.querySelector('#linkTxt').value;
-
-            linkModal.classList.remove('active');
-            overlay.classList.remove('active');
-        });
     
         workspace.appendChild(res);
     }
