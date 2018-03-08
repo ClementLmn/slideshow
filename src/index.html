@@ -12,16 +12,16 @@
         <div class="home">
             <section id="left">
                 <div class="side">
-                    <span>Want a new slideshow ?</span>
-                    <input id='newValue' type="text" placeholder='Type the new slideshow title'>
-                    <button class="primary" id='new'>CREATE</button>
+                    <span>Vous voulez un nouveau slideshow ?</span>
+                    <input id='newValue' type="text" placeholder='Ecrivez ici le titre du slideshow'>
+                    <button class="primary" id='new'>CREER</button>
                 </div>
             </section>
             <section id="right" >
                 <div class="side">
-                    <span>Already have a slideshow ?</span>
-                    <input id='joinValue' type="text" placeholder='Enter the slideshow identifier'>
-                    <button class="primary" id='join'>JOIN</button>
+                    <span>Vous avez déja un slideshow ?</span>
+                    <input id='joinValue' type="text" placeholder="Entrez l'identifiant du slideshow">
+                    <button class="primary" id='join'>REJOINDRE</button>
                 </div>
             </section>
         </div>
@@ -31,14 +31,32 @@
     <span class='error' id='error'>Mauvais mot de passe</span>
     <span class='success' id='success'>Slideshow enregistré</span>    
 
+    <div id='bgModal' class='modal-password modal'>
+        <div class="inner-modal">
+            <div class='field'>
+                <span class='label'>
+                    Choisissez le fond d'écran de votre slide
+                </span>
+                <label class="select" for="bgPicture"><span>Sélectionnez un image...</span><span></span></label>
+                <input type="file" name="background" id="bgPicture" class="visually-hidden" placeholder="Image">
+                <label for="bgColor" class="other">Ou bien une couleur :</label>
+                <input type="color" name="color" id="bgColor" placeholder="Couleur">
+            </div>     
+            <div class="wrapper-btn">
+                <button class='primary' id='bgBtn'>Validez</button>
+                <button class='secondary' id='bgCancel'>Annulez</button>
+            </div>
+        </div>
+    </div>
+
     <div id='pwdModal' class='modal-password modal'>
         <div class="inner-modal">
-                <div class='field'>
-                        <span class='label'>
-                            Mot de passe du Slideshow
-                        </span>
-                        <input type="password" name="password" id="password" placeholder="Le mot de passe">
-                    </div>     
+            <div class='field'>
+                <span class='label'>
+                    Mot de passe du Slideshow
+                </span>
+                <input type="password" name="password" id="password" placeholder="Le mot de passe">
+            </div>     
             <div class="wrapper-btn">
                 <button class='primary' id='passwordBtn'>Validez</button>
                 <button class='secondary' id='passwordCancel'>Annulez</button>

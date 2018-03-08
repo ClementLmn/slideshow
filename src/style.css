@@ -80,7 +80,7 @@ button, a {
     display: flex;
     margin: auto;
     width: 50vw;
-    height: 150px;
+    height: 170px;
     padding: 10vw;
     flex-direction: column;
     justify-content: space-between;
@@ -592,4 +592,41 @@ button.secondary{
     width: 100%;
     align-items: center;
     margin: 0 0 30px;
+}
+
+.visually-hidden{
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    position: absolute;
+    margin: -1px;
+    overflow: hidden;
+ }
+
+.select {
+    width: 100%;
+    border: 1px solid transparent;
+    padding: 15px 30px;
+    background-color: white;
+    font-family: 'Roboto Condensed';
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.3s ease-in-out;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.other {
+    width: 100%;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 10px 0 0 0;
+}
+
+#bgColor {
+    cursor: pointer;
 }

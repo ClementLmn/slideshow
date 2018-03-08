@@ -36,6 +36,7 @@ const MODELS = [
 let cpt = 0;
 var choices;
 var choicesEl;
+var background;
 
 export const createModels = (slideshow) => {
     let models = document.createElement('div');
@@ -117,6 +118,16 @@ const addTitle = (t, workspace) => {
     workspace.insertBefore(zoneTitle, workspace.childNodes[0]);
 }
 
+export const openBgSelect = () => {
+    document.querySelector('#bgModal').classList.add('active');
+    document.querySelector('#overlay').classList.add('active');
+}
+
+export const closeBgSelect = () => {
+    document.querySelector('#bgModal').classList.remove('active');
+    document.querySelector('#overlay').classList.remove('active');
+}
+
 export const insert = (slideshow, workspace, title) => {
     createModels(slideshow);
     createChoices(slideshow);
@@ -144,6 +155,7 @@ export const init = (slideshow, workspace) => {
         element.onclick = () => {
             onModelSelect(element.value);
             hideElement(slideshow);
+            openBgSelect();
         }
     });
 }
@@ -162,4 +174,12 @@ export const toggleElement = (element) => {
     } else {
         element.style.display = 'flex';
     }
+}
+
+export const setBgPicture = (slide, picture) => {
+    background = picture;
+}
+
+export const getBgPicture = () => {
+    return background;
 }

@@ -5,7 +5,6 @@ export const previousSlide = () => {
     const prevSlide = document.querySelector(`[data-slide-id='${parseInt(currentNb)-1}']`);
     current.classList.remove('active');
     prevSlide.classList.add('active');
-     
 }
 
 export const nextSlide = () => {

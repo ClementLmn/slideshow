@@ -11,6 +11,9 @@ var res = {
     title: ''
 };
 
+var bgPictureValue;
+var bgColorValue;
+
 const app = document.querySelector('#app');
 const join = document.querySelector('#join');
 const newBtn = document.querySelector('#new');
@@ -37,6 +40,11 @@ const newSlideBtn = document.querySelector('#newSlide');
 const saveBtn = document.querySelector('#save');
 const updateBtn = document.querySelector('#update');
 const shareBtn = document.querySelector('#share');
+
+const bgBtn = document.querySelector('#bgBtn');
+const bgCancel = document.querySelector('#bgCancel');
+const bgPicture = document.querySelector('#bgPicture');
+const bgColor = document.querySelector('#bgColor');
 
 const closeNewBtn = document.querySelector('#slideshow .close');
 
@@ -167,4 +175,32 @@ passwordBtn.addEventListener('click', () => {
         shareModal.classList.add('active');
         overlay.classList.add('active');
     }
+});
+
+bgBtn.addEventListener('click', () => {
+    let img = document.querySelector('.slide.active > .bg > img');
+    let bg = document.querySelector('.slide.active > .bg');
+    console.log(img);
+    img.setAttribute('src', bgPictureValue);
+    bg.style.background = bgColorValue;
+
+    newSlideshow.closeBgSelect();
+});
+
+bgCancel.addEventListener('click', () => {
+    newSlideshow.closeBgSelect();
+});
+
+bgPicture.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+        bgPictureValue = reader.result;
+    }
+});
+
+bgColor.addEventListener('change', (e) => {
+    bgColorValue = e.target.value;
 });
