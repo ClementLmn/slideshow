@@ -1,6 +1,7 @@
 /* MAIN FILE : ALL ACTIONS TO CONNECT VIEW WITH SERVER */
 import * as url from './js/url';
 import * as db from './js/db';
+import * as url from './js/url';
 import * as newSlideshow from './js/newSlideshow';
 import './style.css';
 
@@ -14,6 +15,7 @@ const actionsBtn = document.querySelector('#actions');
 const btns = document.querySelector('.btns');
 const newSlideBtn = document.querySelector('#newSlide');
 const saveBtn = document.querySelector('#save');
+const updateBtn = document.querySelector('#update');
 
 const closeNewBtn = document.querySelector('#slideshow .close');
 
@@ -40,7 +42,9 @@ newBtn.addEventListener('click', () => {
     newSlideshow.showElement(slideshow);
     slidesContainer = document.querySelector('.slides-container');
     newSlideshow.insert(slideshow, slidesContainer);   
-    newSlideshow.showElement(actions); 
+    newSlideshow.showElement(actions);
+    newSlideshow.hideElement(document.querySelector('#update'));
+    
 });
 
 actionsBtn.addEventListener('click', () => {
@@ -69,4 +73,14 @@ saveBtn.addEventListener('click', () => {
         res.slides.push(slide.outerHTML);
     })
     console.log(db.push(res));
+});
+
+updateBtn.addEventListener('click', () => {
+    const newSlides = [];
+
+    let slides = document.querySelectorAll('.slide');
+    slides.forEach((slide) => {
+        newSlides.push(slide.outerHTML);
+    })
+    db.update(url.getParameterByName('i'), newSlides);
 });

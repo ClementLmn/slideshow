@@ -1,4 +1,5 @@
 import * as slide from './slideTransition';
+import * as newSlideshow from './newSlideshow';
 
 const addTitle = (slideshow) => {
     const rightArrow = document.createElement('button');
@@ -44,6 +45,10 @@ export const init = (data, app) => {
     app.appendChild(slidesContainer);
 
     addTitle(slideshow);
+    newSlideshow.showElement(document.querySelector('#actions'));  
+    newSlideshow.hideElement(document.querySelector('#newSlide'));     
+    newSlideshow.hideElement(document.querySelector('#save'));     
+       
     
     localStorage.setItem('pwd', slideshow.pwd);
     slideshow.slides.forEach((element, i) => {

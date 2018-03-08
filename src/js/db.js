@@ -20,3 +20,8 @@ export const push = (object) => {
     let res = database.push(object);
     return res.key;
 }
+
+export const update = (a, obj) => {
+    firebase.database().ref().child('/'+a)
+        .update({ slides: obj });
+}

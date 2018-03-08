@@ -2,7 +2,7 @@ import * as db from './db';
 import * as slide from './slideTransition';
 import * as getSlideshow from './getSlideshow';
 
-const getParameterByName = (name, url) => {
+export const getParameterByName = (name, url) => {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
