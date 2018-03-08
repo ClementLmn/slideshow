@@ -20,7 +20,7 @@ const closeNewBtn = document.querySelector('#slideshow .close');
 var slidesContainer;
 
 db.init();
-url.check();
+url.check(app);
 
 if(join){
     join.addEventListener('click', function(){

@@ -167,7 +167,6 @@ html {
 
 .slide {
     position: absolute;
-    opacity: 0;
     pointer-events: none;
     top: 0;
     right: 0;
@@ -177,29 +176,61 @@ html {
 }
 
 .slide.active{
-    opacity: 1;
     pointer-events: auto;
-}
-
-.slide h1{
-    font-size: 85px;
-    font-weight: 700;
-    letter-spacing: 10px;
-    margin: 25px 0 25px;
-    text-transform: uppercase;    
 }
 
 .slide h2{
     font-size: 35px;
     letter-spacing: 5px;
     font-weight: 700;
-    text-transform: uppercase;    
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: 0.3s ease-in-out 0.3s;
+    z-index: 1;
+    will-change: transform;
+}
+
+.slide.active h2{
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.3s ease-in-out 0.6s;    
+}
+
+.slide h1{
+    z-index: 1;
+    font-size: 85px;
+    font-weight: 700;
+    letter-spacing: 10px;
+    margin: 25px 0 25px;
+    text-transform: uppercase;
+    opacity: 0;
+    will-change: transform;
+    transform: translateY(-30px);
+    transition: 0.3s ease-in-out 0.2s;
+}
+
+.slide.active h1{
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.3s ease-in-out 0.7s;    
 }
 
 .slide p{
     margin: 45px 0;
     text-transform: capitalize;
     font-size: 18px;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(-30px);
+    will-change: transform;
+    transition: 0.3s ease-in-out 0.1s;
+}
+
+.slide.active p{
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.3s ease-in-out 0.8s;    
 }
 
 .slide .bg{
@@ -209,7 +240,17 @@ html {
     width: 200%; 
     height: 200%;
     z-index: -1;
+    opacity: 0;
+    transform: translateX(-150px);
+    will-change: transform;
+    transition: 0.5s ease-in-out;
 }
+.slide.active .bg{
+    opacity: 1;
+    transform: translateX(0px);
+    transition: 0.5s ease-in-out 0.2s;
+}
+
 
 .slide .content{
     position: absolute;
@@ -237,11 +278,22 @@ html {
 
 .slide a {
     position: relative;
+    will-change: transform;
     color: white;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 18px;
     letter-spacing: 2px;
+    opacity: 0;
+    z-index: 1;
+    transform: translateY(-30px);
+    transition: 0.3s ease-in-out;    
+}
+
+.slide.active a{
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.3s ease-in-out 0.9s;    
 }
 
 .slide a::before{
@@ -321,7 +373,7 @@ html {
 .to-left::before, .to-right::before, .to-left::after, .to-right::after{
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 15px;
     content: '';
     display: block;
     height: 2px;
@@ -342,6 +394,7 @@ html {
 
 .to-left::after, .to-right::after{
     transform: rotate(-45deg);
+    top: 14px;
 }
 
 

@@ -1,5 +1,6 @@
 import * as db from './db';
 import * as slide from './slideTransition';
+import * as getSlideshow from './getSlideshow';
 
 const getParameterByName = (name, url) => {
     if (!url) url = window.location.href;
@@ -11,62 +12,12 @@ const getParameterByName = (name, url) => {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-const addTitle = (slideshow) => {
-    const rightArrow = document.createElement('button');
-    const leftArrow = document.createElement('button');
-
-    leftArrow.addEventListener('click', function(e){
-        slide.previousSlide(slideshow);
-    }, false);
-
-    rightArrow.addEventListener('click', function(e){
-        slide.nextSlide(slideshow);
-    }, false);
-
-    rightArrow.classList.add('to-right');
-    rightArrow.id = 'toRight';
-    rightArrow.innerHTML = "<span class='inner-btn'>></span>";
-
-    leftArrow.classList.add('to-left');
-    leftArrow.id = 'toLeft';
-    leftArrow.innerHTML = "<span class='inner-btn'><</span>";
-
-    const title = document.createElement('h2');
-    title.innerHTML = slideshow.title;
-
-    const zoneTitle = document.createElement('div');
-    zoneTitle.classList.add('zone-title');
-
-    zoneTitle.appendChild(title);
-    zoneTitle.appendChild(rightArrow);
-    zoneTitle.insertBefore(leftArrow, zoneTitle.childNodes[0]);
-
-    document.title = slideshow.title;
-    
-    app.insertBefore(zoneTitle, app.childNodes[0]);
-}
-
-export const check = () => {
+export const check = (app) => {
     const param = getParameterByName('i');
     if(!param) return;
-    app.innerHTML = '';    
+    app.innerHTML = '';
     db.get(`/${param}`).then(data => {
-        const slideshow = data.val();
-
-
-        
-        const slidesContainer = document.createElement('div');
-        slidesContainer.classList.add('slides-container');
-
-        app.appendChild(slidesContainer);
-
-        addTitle(slideshow);
-        
-        localStorage.setItem('pwd', slideshow.pwd);
-        slideshow.slides.forEach((element, i) => {
-            slidesContainer.insertAdjacentHTML('beforeend', element);
-        });
-        slidesContainer.querySelector('.slide:first-child').classList.add('active');
+        getSlideshow.init(data, app)
     });
 }
 
