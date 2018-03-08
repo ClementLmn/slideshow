@@ -432,6 +432,13 @@ button, a {
     right: 0;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.overlay-modal.active{
+    opacity: 1;
 }
 
 .modal input{
@@ -473,7 +480,19 @@ button.secondary{
     font-weight: 700;
     transition: 0.3s ease-in-out;
     margin: 0 20px;
-    
+}
+
+.modal{
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+    transform: translateY(-50px);
+}
+
+.modal.active{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .modal button:hover, .modal button:focus {
@@ -507,4 +526,30 @@ button.secondary{
     align-items: center;
     justify-content: center;
     z-index: 6;
+}
+
+.error, .success{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    color: white;
+    transform: translateY(-70px);
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    font-size: 20px;
+}
+
+.error.active, .success.active{
+    transform: translate(0);
+    opacity: 1;
+}
+
+.success{
+    background-color: green;
 }

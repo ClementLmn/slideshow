@@ -12,6 +12,15 @@ const slideshow = document.querySelector('#slideshow');
 const workspace = document.querySelector('#workspace');
 const actionsBtn = document.querySelector('#actions');
 
+const error = document.querySelector('#error');
+const success = document.querySelector('#success');
+
+const pwdModal = document.querySelector('#pwdModal');
+const pwdValue = document.querySelector('#password');
+const passwordBtn = document.querySelector('#passwordBtn');
+const passwordCancel = document.querySelector('#passwordCancel');
+const overlay = document.querySelector('#overlay');
+
 const btns = document.querySelector('.btns');
 const newSlideBtn = document.querySelector('#newSlide');
 const saveBtn = document.querySelector('#save');
@@ -76,11 +85,43 @@ saveBtn.addEventListener('click', () => {
 });
 
 updateBtn.addEventListener('click', () => {
-    const newSlides = [];
+    overlay.classList.add('active');
+    pwdModal.classList.add('active');    
+});
 
-    let slides = document.querySelectorAll('.slide');
-    slides.forEach((slide) => {
-        newSlides.push(slide.outerHTML);
-    })
-    db.update(url.getParameterByName('i'), newSlides);
+passwordCancel.addEventListener('click', () => {
+    overlay.classList.remove('active');
+    pwdModal.classList.remove('active');
+});
+
+passwordBtn.addEventListener('click', () => {
+    const mdp = localStorage.getItem('pwd');
+    const testMdp = pwdValue.value;
+    
+    if(mdp == testMdp){
+        console.log(mdp, testMdp, 'good');
+        
+        success.classList.add('active');
+        setTimeout(() => {
+            remove.classList.remove('active');
+        }, 3000);
+        
+        const newSlides = [];
+
+        let slides = document.querySelectorAll('.slide');
+        slides.forEach((slide) => {
+            newSlides.push(slide.outerHTML);
+        })
+        db.update(url.getParameterByName('i'), newSlides);
+    }else{
+        console.log(mdp, testMdp, 'bad');
+        
+        error.classList.add('active');
+        setTimeout(() => {
+            error.classList.remove('active');
+        }, 3000);
+    }
+
+    overlay.classList.remove('active');
+    pwdModal.classList.remove('active');
 });
