@@ -154,12 +154,14 @@ export const init = (slideshow, workspace) => {
 
         const theLink = res.querySelector('.content a');
 
-        res.querySelector('.link-edit').addEventListener('click', function(e){
-            linkModal.querySelector('#link').value = theLink.href;
-            linkModal.querySelector('#linkTxt').value = theLink.innerHTML;
-            linkModal.classList.add('active');
-            overlay.classList.add('active');
-        });
+        if(res.querySelectorAll('.link-edit').length){
+            res.querySelector('.link-edit').addEventListener('click', function(e){
+                linkModal.querySelector('#link').value = theLink.href;
+                linkModal.querySelector('#linkTxt').value = theLink.innerHTML;
+                linkModal.classList.add('active');
+                overlay.classList.add('active');
+            });
+        }
     
         workspace.appendChild(res);
     }
