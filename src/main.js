@@ -9,7 +9,11 @@ const join = document.querySelector('#join');
 const newBtn = document.querySelector('#new');
 const slideshow = document.querySelector('#slideshow');
 const workspace = document.querySelector('#workspace');
+const actionsBtn = document.querySelector('#actions');
+
+const btns = document.querySelector('.btns');
 const newSlideBtn = document.querySelector('#newSlide');
+const saveBtn = document.querySelector('#save');
 
 const closeNewBtn = document.querySelector('#slideshow .close');
 
@@ -36,7 +40,11 @@ newBtn.addEventListener('click', () => {
     newSlideshow.showElement(slideshow);
     slidesContainer = document.querySelector('.slides-container');
     newSlideshow.insert(slideshow, slidesContainer);   
-    newSlideshow.showElement(newSlideBtn); 
+    newSlideshow.showElement(actions); 
+});
+
+actionsBtn.addEventListener('click', () => {
+    newSlideshow.toggleElement(btns);
 });
 
 newSlideBtn.addEventListener('click', () => {
@@ -47,4 +55,18 @@ newSlideBtn.addEventListener('click', () => {
 
 closeNewBtn.addEventListener('click', () => {
     newSlideshow.hideElement(slideshow);
+});
+
+saveBtn.addEventListener('click', () => {
+    let res = {
+        pwd: '',
+        slides: [],
+        title: '',
+        uid: 0
+    };
+    let slides = document.querySelectorAll('.slide');
+    slides.forEach((slide) => {
+        res.slides.push(slide.outerHTML);
+    })
+    console.log(db.push(res));
 });

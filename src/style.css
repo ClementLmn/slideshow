@@ -76,30 +76,34 @@ html {
     position: relative;
 }
 
-#newSlide {
+#actions {
     display: none;
-    height: 70px;
-    width: 70px;
     position: absolute;
     right: 5vw;
     bottom: 5vh;
-    border-radius: 50%;
+    font-size: 4em;
+    padding: 7px 0 0 0;
+    transform: rotate(30deg);
     background-color: #FFFFFF;
+    border: none;
+}
+
+.btn {
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+    font-size: 2em;
+    justify-content: center;
+    border-radius: 50%;
     cursor: pointer;
 }
 
-.close {
-    height: 70px;
-    width: 70px;
-    font-size: 3em;
-    padding: 0 0 10px 0;
-    background-color: transparent;
-    transform: rotate(45deg);
-    justify-content: center;
-    color: white;
-    border-radius: 50%;
-    border: solid 2px #FFFFFF;
-    cursor: pointer;
+.btns {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    right: 5vw;
+    bottom: 16vh;
 }
 
 #slideshow > .close {
@@ -107,6 +111,17 @@ html {
     position: absolute;
     right: 5vw;
     top: 5vh;
+    font-size: 3em;
+    padding: 0 0 10px 0;
+    transform: rotate(45deg);
+    color: white;
+    border: solid 2px #FFFFFF;
+    background-color: transparent;
+}
+
+#newSlide {
+    font-size: 3em;
+    padding: 0 0 10px 0;
 }
 
 .models {

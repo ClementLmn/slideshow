@@ -1,3 +1,5 @@
+var database;
+
 export const init = () => {
     const config = {
         apiKey: "AIzaSyBo9ND2NmHSGXpLb6-CRp8Epyn9lRQJbP8",
@@ -7,9 +9,14 @@ export const init = () => {
         storageBucket: "slideshow-dc259.appspot.com",
         messagingSenderId: "104655350834"
     };
-    firebase.initializeApp(config);
+    database = firebase.initializeApp(config).database().ref();
 }
 
 export const get = (a) => {
     return firebase.database().ref(a).once('value');
+}
+
+export const push = (object) => {
+    let res = database.push(object);
+    return res.key;
 }

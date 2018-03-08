@@ -1,3 +1,5 @@
+import * as slide from './slideTransition';
+
 const MODELS = [
     {
         'name': 'model-1',
@@ -16,7 +18,7 @@ const MODELS = [
     },
     {
         'name': 'model-4',
-        'template': "<div class='content'><h1 class='top' contenteditable='true'>Votre titre ici</h1><h2 contenteditable='true'>Votre texte ici</h2><p class='bottom' contenteditable='true'>Votre texte ici</p></div>",
+        'template': "<div class='content'><h2 contenteditable='true'>Votre texte ici</h2><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='bottom' contenteditable='true'>Votre texte ici</p></div>",
         'choice': 4
     },
     {
@@ -84,7 +86,8 @@ export const init = (slideshow, workspace) => {
         cpt++;
     
         tmp.removeAttribute('id');
-        tmp.className = 'slide';
+        tmp.classList.remove('model');
+        tmp.classList.add('slide', 'active');
         tmp.dataset.slideId = cpt;
         tmp.dataset.slideModel = modelId;
     
@@ -105,4 +108,12 @@ export const showElement = (element) => {
 
 export const hideElement = (element) => {
     element.style.display = 'none';
+}
+
+export const toggleElement = (element) => {
+    if(element.style.display === 'flex' ){
+        element.style.display = 'none';
+    } else {
+        element.style.display = 'flex';
+    }
 }
