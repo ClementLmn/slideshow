@@ -28,8 +28,13 @@
     <span class='success' id='success'>Slideshow enregistré</span>    
 
     <div id='pwdModal' class='modal-password modal'>
-        <div class="inner-modal">        
-            <input type="password" name="password" id="password" placeholder="Le mot de passe">
+        <div class="inner-modal">
+                <div class='field'>
+                        <span class='label'>
+                            Mot de passe du Slideshow
+                        </span>
+                        <input type="password" name="password" id="password" placeholder="Le mot de passe">
+                    </div>     
             <div class="wrapper-btn">
                 <button class='primary' id='passwordBtn'>Validez</button>
                 <button class='secondary' id='passwordCancel'>Annulez</button>
@@ -37,10 +42,29 @@
         </div>
     </div>
 
+    <div id='shareModal' class='modal-password modal'>
+        <div class="inner-modal">        
+            <div class='field'>
+                <span class='label'>
+                    Lien du Slideshow
+                </span>
+                <span class='value' id='linkOutput'></span>
+            </div>
+            <div class='field'>
+                <span class='label'>
+                    Mot de passe du Slideshow
+                </span>
+                <span class='value' id='pwdOutput'></span>
+            </div>
+            <div class='wrapper-btn'>
+                <button class='secondary' id='shareCancel'>Annulez</button>
+            </div>
+        </div>
+    </div>
+
     <div class="overlay-modal" id='overlay'></div>
 
     <div class="btns">
-        <button id='share' class="btn">#</button>
         <button id='save' class="btn">@</button>
         <button id='update' class="btn">UP</button>
         <button id='newSlide' class="btn">+</button>

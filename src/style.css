@@ -441,14 +441,14 @@ button, a {
     opacity: 1;
 }
 
-.modal input{
+.modal input, .field .value{
     border: none;
     padding: 15px 30px;
     font-family: 'Roboto Condensed';
     font-size: 20px;
     width: 100%;
     color: black;
-
+    background-color: white;
 }
 
 .modal .wrapper-btn{
@@ -543,6 +543,7 @@ button.secondary{
     opacity: 0;
     transition: 0.3s ease-in-out;
     font-size: 20px;
+    z-index: 7;
 }
 
 .error.active, .success.active{
@@ -552,4 +553,16 @@ button.secondary{
 
 .success{
     background-color: green;
+}
+
+.modal .label{
+    margin: 0 0 15px;
+}
+
+.modal .field{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin: 0 0 30px;
 }

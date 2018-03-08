@@ -21,10 +21,16 @@ const passwordBtn = document.querySelector('#passwordBtn');
 const passwordCancel = document.querySelector('#passwordCancel');
 const overlay = document.querySelector('#overlay');
 
+const shareModal = document.querySelector('#shareModal');
+const linkOutput = document.querySelector('#linkOutput');
+const shareCancel = document.querySelector('#shareCancel');
+const pwdOutput = document.querySelector('#pwdOutput');
+
 const btns = document.querySelector('.btns');
 const newSlideBtn = document.querySelector('#newSlide');
 const saveBtn = document.querySelector('#save');
 const updateBtn = document.querySelector('#update');
+const shareBtn = document.querySelector('#share');
 
 const closeNewBtn = document.querySelector('#slideshow .close');
 
@@ -84,6 +90,11 @@ saveBtn.addEventListener('click', () => {
     console.log(db.push(res));
 });
 
+shareCancel.addEventListener('click', function(){
+    shareModal.classList.remove('active');
+    overlay.classList.remove('active');
+});
+
 updateBtn.addEventListener('click', () => {
     overlay.classList.add('active');
     pwdModal.classList.add('active');    
@@ -99,11 +110,9 @@ passwordBtn.addEventListener('click', () => {
     const testMdp = pwdValue.value;
     
     if(mdp == testMdp){
-        console.log(mdp, testMdp, 'good');
-        
         success.classList.add('active');
         setTimeout(() => {
-            remove.classList.remove('active');
+            success.classList.remove('active');
         }, 3000);
         
         const newSlides = [];
@@ -113,15 +122,23 @@ passwordBtn.addEventListener('click', () => {
             newSlides.push(slide.outerHTML);
         })
         db.update(url.getParameterByName('i'), newSlides);
-    }else{
-        console.log(mdp, testMdp, 'bad');
+
+        pwdOutput.innerHTML = mdp;
+        linkOutput.innerHTML = window.location;
         
+
+        overlay.classList.remove('active');
+        pwdModal.classList.remove('active');
+
+        shareModal.classList.add('active');
+        overlay.classList.add('active');
+
+
+
+    }else{
         error.classList.add('active');
         setTimeout(() => {
             error.classList.remove('active');
         }, 3000);
     }
-
-    overlay.classList.remove('active');
-    pwdModal.classList.remove('active');
 });
