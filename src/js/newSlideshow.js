@@ -8,7 +8,7 @@ const MODELS = [
     },
     {
         'name': 'model-2',
-        'template': "<div class='bg'><img src='.'></div><div class='content'><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='bottom' contenteditable='true'>Votre texte ici</p><div class='wrapper-link'><a href='#'>Un lien</a><span class='link-edit'>Éditer</span></div></div>",
+        'template': "<div class='bg'><img src='.'></div><div class='content'><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='bottom' contenteditable='true'>Votre texte ici</p><div class='wrapper-link'><a href='#' target='_blank'>Un lien</a><span class='link-edit'>Éditer</span></div></div>",
         'choice': 2
     },
     {
@@ -18,12 +18,12 @@ const MODELS = [
     },
     {
         'name': 'model-4',
-        'template': "<div class='bg'><img src='.'></div><div class='content'><h2 contenteditable='true'>Votre texte ici</h2><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='bottom' contenteditable='true'>Votre texte ici</p><div class='wrapper-link'><a href='#'>Un lien</a><span class='link-edit'>Éditer</span></div></div>",
+        'template': "<div class='bg'><img src='.'></div><div class='content'><h2 contenteditable='true'>Votre texte ici</h2><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='bottom' contenteditable='true'>Votre texte ici</p><div class='wrapper-link'><a href='#' target='_blank'>Un lien</a><span class='link-edit'>Éditer</span></div></div>",
         'choice': 4
     },
     {
         'name': 'model-5',
-        'template': "<div class='bg'><img src='.'></div><div class='content'><p class='left' contenteditable='true'>Votre texte ici</p><div class='wrapper-link'><a href='#'>Un lien</a><span class='link-edit'>Éditer</span></div></div>",
+        'template': "<div class='bg'><img src='.'></div><div class='content'><p class='left' contenteditable='true'>Votre texte ici</p><div class='wrapper-link'><a href='#' target='_blank'>Un lien</a><span class='link-edit'>Éditer</span></div></div>",
         'choice': 5
     },
     {
