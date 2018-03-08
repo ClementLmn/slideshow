@@ -59,7 +59,7 @@ const yolo = (slidesContainer) => {
         
 
     });
-    
+
     slidesContainer.querySelectorAll('[data-slide-id="1"]')[0].classList.add('active');  
 }
 
@@ -75,6 +75,7 @@ export const init = (data, app) => {
     newSlideshow.showElement(document.querySelector('#actions'));  
     newSlideshow.hideElement(document.querySelector('#newSlide'));     
     newSlideshow.hideElement(document.querySelector('#save'));     
+    newSlideshow.hideElement(document.querySelector('#delete'));     
        
     
     localStorage.setItem('pwd', slideshow.pwd);
