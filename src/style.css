@@ -234,6 +234,7 @@ button, a {
     color: #000000;
     background-color:#FFFFFF;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
 
 .choices > li:hover {
