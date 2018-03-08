@@ -81,7 +81,7 @@ button, a {
     justify-content: space-between;
 }
 
-.side > button , input {
+.side > button , .side > input {
     height: 40px;
     border-radius: 30px;
     font-size: 1em;
@@ -430,14 +430,71 @@ button, a {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 5;
 }
 
 .modal input{
     border: none;
     padding: 15px 30px;
+    font-family: 'Roboto Condensed';
+    font-size: 20px;
+    width: 100%;
+    color: black;
+
+}
+
+.modal .wrapper-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+button.primary{
+    border: 1px solid transparent;
+    padding: 15px 30px;
+    background-color: white;
+    font-family: 'Roboto Condensed';
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.3s ease-in-out;
+    margin: 0 20px;
+}
+
+button.secondary{
+    border: 1px solid currentColor;
+    padding: 15px 30px;
+    background-color: transparent;
+    font-family: 'Roboto Condensed';
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.3s ease-in-out;
+    margin: 0 20px;
     
+}
+
+.modal button:hover, .modal button:focus {
+    border: 1px solid currentColor;
+    background-color: transparent;
+    color: white;
+}
+
+.modal button.secondary:hover, .modal button.secondary:focus {
+    border: 1px solid transparent;
+    background-color: white;
+    color: black;
+}
+
+.inner-modal{
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .modal-password{
