@@ -36,6 +36,33 @@ const addTitle = (slideshow) => {
     app.insertBefore(zoneTitle, app.childNodes[0]);
 }
 
+const yolo = (slidesContainer) => {
+    slidesContainer.querySelectorAll('.slide').forEach((element) => {
+        const linkModal = document.querySelector('#linkModal');
+        const overlay = document.querySelector('#overlay');
+
+        const linkBtn = document.querySelector('#linkBtn');
+
+        const theLink = element.querySelector('.content a');
+
+        element.classList.remove('active');
+        
+        
+        if(element.querySelectorAll('.link-edit').length){
+            element.querySelector('.link-edit').addEventListener('click', function(e){
+                linkModal.querySelector('#link').value = theLink.href;
+                linkModal.querySelector('#linkTxt').value = theLink.innerHTML;
+                linkModal.classList.add('active');
+                overlay.classList.add('active');
+            });
+        }
+        
+
+    });
+    
+    slidesContainer.querySelectorAll('[data-slide-id="1"]')[0].classList.add('active');  
+}
+
 export const init = (data, app) => {
     const slideshow = data.val();
         
@@ -51,33 +78,13 @@ export const init = (data, app) => {
        
     
     localStorage.setItem('pwd', slideshow.pwd);
+
+
     slideshow.slides.forEach((element, i) => {
         slidesContainer.insertAdjacentHTML('beforeend', element);
     });
-    slidesContainer.querySelector('.slide:first-child').classList.add('active');
-    
 
-    
 
-    slidesContainer.querySelectorAll('.slide').forEach((element) => {
-        const linkModal = document.querySelector('#linkModal');
-        const overlay = document.querySelector('#overlay');
-
-        const linkBtn = document.querySelector('#linkBtn');
-
-        const theLink = element.querySelector('.content a');        
-
-        element.querySelector('.link-edit').addEventListener('click', function(e){
-            linkModal.querySelector('#link').value = theLink.href;
-            linkModal.querySelector('#linkTxt').value = theLink.innerHTML;
-            linkModal.classList.add('active');
-            overlay.classList.add('active');
-        });
-
-    });
-    
-    
-    
-
+    yolo(slidesContainer);  
     
 }
