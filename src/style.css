@@ -179,7 +179,7 @@ button, a {
     font-size: 2em;
     display: flex;
     justify-content: center;
-    align-item: center;
+    align-items: center;
     border-radius: 50%;
     cursor: pointer;
     outline: none;
