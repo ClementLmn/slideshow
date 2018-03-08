@@ -5,6 +5,12 @@ import * as url from './js/url';
 import * as newSlideshow from './js/newSlideshow';
 import './style.css';
 
+var res = {
+    pwd: '',
+    slides: [],
+    title: ''
+};
+
 const app = document.querySelector('#app');
 const join = document.querySelector('#join');
 const newBtn = document.querySelector('#new');
@@ -43,6 +49,9 @@ if(join){
 }
 
 newBtn.addEventListener('click', () => {
+    const title = document.querySelector('#newValue');
+    res.title = title.value;
+
     const tmp = document.createElement('div');
     tmp.classList.add('slides-container');
     app.innerHTML = '';
@@ -71,17 +80,14 @@ closeNewBtn.addEventListener('click', () => {
 });
 
 saveBtn.addEventListener('click', () => {
-    let res = {
-        pwd: '',
-        slides: [],
-        title: '',
-        uid: 0
-    };
     let slides = document.querySelectorAll('.slide');
     slides.forEach((slide) => {
         res.slides.push(slide.outerHTML);
     })
-    console.log(db.push(res));
+    if(localStorage.getItem('id')){
+        db.remove(localStorage.getItem('id'));
+    }
+    localStorage.setItem('id', db.push(res));
 });
 
 updateBtn.addEventListener('click', () => {
