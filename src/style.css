@@ -177,9 +177,17 @@ button, a {
     width: 70px;
     margin: 5px;
     font-size: 2em;
+    display: flex;
     justify-content: center;
+    align-item: center;
     border-radius: 50%;
     cursor: pointer;
+    outline: none;
+}
+
+.btn svg{
+    width: 40px;
+    height: 40px;
 }
 
 .btns {
@@ -300,7 +308,6 @@ button, a {
 
 .slide p{
     margin: 45px 0;
-    text-transform: capitalize;
     font-size: 18px;
     z-index: 1;
     opacity: 0;
@@ -441,6 +448,7 @@ button, a {
     cursor: pointer;
     background-color: transparent;
     border: 0;
+    outline: none;
 }
 
 .to-left > .inner-btn, .to-right > .inner-btn{
