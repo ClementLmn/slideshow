@@ -119,6 +119,33 @@ button, a {
     border: 1px solid white;
 }
 
+.link-edit{
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    bottom: -55px;
+    font-size: 16px;
+    text-transform: none;
+    color: black;
+    padding: 10px 0;
+    background-color: white;
+    transform: translateY(-10px);
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;    
+    transition: 0.3s ease-in-out 0.3s;
+}
+
+.wrapper-link{
+    position: relative;
+}
+
+.wrapper-link:hover .link-edit{
+    transform: translateY(0);
+    opacity: 1;
+}
+
 #slideshow {
     display: none;
     width: 100vw;
@@ -543,7 +570,7 @@ button.secondary{
     justify-content: center;
 }
 
-.modal-password{
+.modal{
     position: absolute;
     top: 0;
     bottom: 0;

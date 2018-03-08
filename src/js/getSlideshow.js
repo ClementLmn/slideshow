@@ -55,4 +55,29 @@ export const init = (data, app) => {
         slidesContainer.insertAdjacentHTML('beforeend', element);
     });
     slidesContainer.querySelector('.slide:first-child').classList.add('active');
+    
+
+    
+
+    slidesContainer.querySelectorAll('.slide').forEach((element) => {
+        const linkModal = document.querySelector('#linkModal');
+        const overlay = document.querySelector('#overlay');
+
+        const linkBtn = document.querySelector('#linkBtn');
+
+        const theLink = element.querySelector('.content a');        
+
+        element.querySelector('.link-edit').addEventListener('click', function(e){
+            linkModal.querySelector('#link').value = theLink.href;
+            linkModal.querySelector('#linkTxt').value = theLink.innerHTML;
+            linkModal.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+    });
+    
+    
+    
+
+    
 }

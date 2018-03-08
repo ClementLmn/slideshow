@@ -35,6 +35,9 @@ const linkOutput = document.querySelector('#linkOutput');
 const shareCancel = document.querySelector('#shareCancel');
 const pwdOutput = document.querySelector('#pwdOutput');
 
+const linkBtn = document.querySelector('#linkBtn');
+const linkCancel = document.querySelector('#linkCancel');
+
 const btns = document.querySelector('.btns');
 const newSlideBtn = document.querySelector('#newSlide');
 const saveBtn = document.querySelector('#save');
@@ -103,9 +106,23 @@ shareCancel.addEventListener('click', function(){
     overlay.classList.remove('active');
 });
 
+linkCancel.addEventListener('click', function(){
+    linkModal.classList.remove('active');
+    overlay.classList.remove('active');
+});
+
+linkBtn.addEventListener('click', function(){
+    const theLink = document.querySelector('.slide.active .wrapper-link a');
+    theLink.href = linkModal.querySelector('#link').value;
+    theLink.innerHTML = linkModal.querySelector('#linkTxt').value;
+
+    linkModal.classList.remove('active');
+    overlay.classList.remove('active');
+});
+
 updateBtn.addEventListener('click', () => {
     overlay.classList.add('active');
-    pwdModal.classList.add('active');    
+    pwdModal.classList.add('active'); 
 });
 
 passwordCancel.addEventListener('click', () => {
