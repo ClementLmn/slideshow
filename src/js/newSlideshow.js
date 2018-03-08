@@ -8,22 +8,22 @@ const MODELS = [
     },
     {
         'name': 'model-2',
-        'template': "<div class='bg'><img src='.'></div><div class='content'><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='left' contenteditable='true'>Votre texte ici</p><p class='bottom' contenteditable='true'>Votre texte ici</p></div>",
+        'template': "<div class='bg'><img src='.'></div><div class='content'><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='bottom' contenteditable='true'>Votre texte ici</p><div class='wrapper-link'><a href='#'>Un lien</a><span class='link-edit'>Éditer</span></div></div>",
         'choice': 2
     },
     {
         'name': 'model-3',
-        'template': "<div class='bg'><img src='.'></div><div class='content'><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='right' contenteditable='true'>Votre texte ici</p><p class='bottom' contenteditable='true'>Votre texte ici</p></div>",
+        'template': "<div class='bg'><img src='.'></div><div class='content'><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='bottom' contenteditable='true'>Votre texte ici</p></div>",
         'choice': 3
     },
     {
         'name': 'model-4',
-        'template': "<div class='bg'><img src='.'></div><div class='content'><h2 contenteditable='true'>Votre texte ici</h2><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='bottom' contenteditable='true'>Votre texte ici</p></div>",
+        'template': "<div class='bg'><img src='.'></div><div class='content'><h2 contenteditable='true'>Votre texte ici</h2><h1 class='top' contenteditable='true'>Votre titre ici</h1><p class='bottom' contenteditable='true'>Votre texte ici</p><div class='wrapper-link'><a href='#'>Un lien</a><span class='link-edit'>Éditer</span></div></div>",
         'choice': 4
     },
     {
         'name': 'model-5',
-        'template': "<div class='bg'><img src='.'></div><div class='content'><p class='left' contenteditable='true'>Votre texte ici</p></div>",
+        'template': "<div class='bg'><img src='.'></div><div class='content'><p class='left' contenteditable='true'>Votre texte ici</p><div class='wrapper-link'><a href='#'>Un lien</a><span class='link-edit'>Éditer</span></div></div>",
         'choice': 5
     },
     {
@@ -136,6 +136,27 @@ export const init = (slideshow, workspace) => {
         cpt++;
 
         let res = addSlide(slideshow, tmp, cpt, modelId);
+        const linkModal = document.querySelector('#linkModal');
+        const overlay = document.querySelector('#overlay');
+
+        const linkBtn = document.querySelector('#linkBtn');
+
+        const theLink = res.querySelector('.content a');
+
+        res.querySelector('.link-edit').addEventListener('click', function(e){
+            linkModal.querySelector('#link').value = theLink.href;
+            linkModal.querySelector('#linkTxt').value = theLink.innerHTML;
+            linkModal.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        linkBtn.addEventListener('click', function(){
+            theLink.href = linkModal.querySelector('#link').value;
+            theLink.innerHTML = linkModal.querySelector('#linkTxt').value;
+
+            linkModal.classList.remove('active');
+            overlay.classList.remove('active');
+        });
     
         workspace.appendChild(res);
     }
